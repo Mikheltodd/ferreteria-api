@@ -20,11 +20,8 @@ const productTypeDefs = gql`
   }
 
   type Mutation {
-    createProduct(product: ProductInput!): Product
-  }
-
-  type Mutation {
-    deleteProduct(id: String!): String
+    createProduct(userId: String!, product: ProductInput!): Product
+    deleteProduct(userId: String!, id: String!): String
   }
 `;
 
