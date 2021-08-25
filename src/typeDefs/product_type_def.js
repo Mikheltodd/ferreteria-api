@@ -8,8 +8,23 @@ const productTypeDefs = gql`
     price: Int
   }
 
+  input ProductInput {
+    id: String!
+    name: String
+    quantity: Int
+    price: Int
+  }
+
   type Query {
-    getProduct(id: String!): Product
+    getProduct(userId: String!, id: String!): Product
+  }
+
+  type Mutation {
+    createProduct(product: ProductInput!): Product
+  }
+
+  type Mutation {
+    deleteProduct(id: String!): String
   }
 `;
 

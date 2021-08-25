@@ -11,6 +11,15 @@ class ProductAPI extends RESTDataSource {
   async getProduct(id) {
     return await this.get(`/products/${id}`);
   }
+
+  async createProduct(product) {
+    product = new Object(JSON.parse(JSON.stringify(product)));
+    return await this.post("/products/create", product);
+  }
+
+  async deleteProduct(id) {
+    return await this.delete(`/products/delete/${id}`);
+  }
 }
 
 module.exports = ProductAPI;
